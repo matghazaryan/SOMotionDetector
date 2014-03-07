@@ -5,7 +5,12 @@ Simple library to detect motion for iOS by <b> arturdev </b>.
 
 Based on location updates and acceleration.
 
-Compatible with iOS 7
+###Requierments
+iOS > 6.0 
+
+Compatible with <b>iOS 7</b>
+
+<b>Works on all iOS devices (i.e. not need M7 chip)</b>
 
 <img src="https://raw.github.com/SocialObjects-Software/SOMotionDetector/master/MotionDetection/screenshot.PNG" width=320>
 

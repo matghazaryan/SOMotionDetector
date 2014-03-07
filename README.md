@@ -9,7 +9,7 @@ USAGE
 =====
 Copy <b>SOMotionDetector</b> folder to your project.
 
-Link <b>CoreMotion.framework</b> and <CoreLocation.framework>.
+Link <b>CoreMotion.framework</b> and <b><CoreLocation.framework></b>.
 
 Import <b>SOMotionDetector.h"</b> file and implement <br><SOMotionDetectorDelegate></b> protocol.
 

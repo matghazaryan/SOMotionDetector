@@ -7,6 +7,9 @@ Based on location updates and acceleration.
 
 Compatible with iOS 7
 
+<img src="https://raw.github.com/SocialObjects-Software/SOMotionDetector/master/MotionDetection/screenshot.PNG" width=320>
+
+
 USAGE
 =====
 Copy <b>SOMotionDetector</b> folder to your project.

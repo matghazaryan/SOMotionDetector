@@ -25,7 +25,7 @@ Set SOMotionDetector's delegate to self
 [SOMotionDetector sharedInstance].delegate = self;
 </pre>
 
-Implement delegate's methods 
+Implement delegate methods 
 <pre>
 - (void)motionDetector:(SOMotionDetector *)motionDetector motionTypeChanged:(SOMotionType)motionType
 {

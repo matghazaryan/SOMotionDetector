@@ -13,20 +13,20 @@ Link <b>CoreMotion.framework</b>, <b>CoreLocation.framework</b>.
 
 Import <b>SOMotionDetector.h"</b> file and implement <br><SOMotionDetectorDelegate></b> protocol.
 
-<pre>
+```ObjC
 #import "SOMotionDetector.h
 @interface ViewController ()<SOMotionDetectorDelegate>
 
 @end
-</pre>
+```
 
 Set SOMotionDetector's delegate to self
-<pre>
+```ObjC
 [SOMotionDetector sharedInstance].delegate = self;
-</pre>
+```
 
 Implement delegate methods 
-<pre>
+```ObjC
 - (void)motionDetector:(SOMotionDetector *)motionDetector motionTypeChanged:(SOMotionType)motionType
 {
 
@@ -41,9 +41,53 @@ Implement delegate methods
 {
     
 }
-</pre>
+```
 
 You are done! 
 
-Just call `[[SOMotionDetector sharedInstance] startDetection];` when you want to start detection
-and `[[SOMotionDetector sharedInstance] stopDetection];`  when you want to stop detection.
+Now to start detection motion just call
+```ObjC 
+[[SOMotionDetector sharedInstance] startDetection];
+```
+
+To stop detection call
+```ObjC 
+[[SOMotionDetector sharedInstance] stopDetection];
+```  
+
+###Detecting motion types
+```ObjC
+typedef enum
+{
+  MotionTypeNotMoving = 1,
+  MotionTypeWalking,
+  MotionTypeRunning,
+  MotionTypeAutomotive
+} SOMotionType;
+```
+
+CUSTOMIZATION
+=============
+```ObjC
+
+/**
+ *@param speed  The minimum speed value less than which will be considered as not moving state
+ */
+- (void)setMinimumSpeed:(CGFloat)speed;
+
+/**
+ *@param speed  The maximum speed value more than which will be considered as running state
+ */
+- (void)setMaximumWalkingSpeed:(CGFloat)speed;
+
+/**
+ *@param speed  The maximum speed value more than which will be considered as automotive state
+ */
+- (void)setMaximumRunningSpeed:(CGFloat)speed;
+
+/**
+ *@param acceleration  The minimum acceleration value less than which will be considered as non shaking state
+ */
+- (void)setMinimumRunningAcceleration:(CGFloat)acceleration;
+
+```

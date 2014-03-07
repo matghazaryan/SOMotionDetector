@@ -22,7 +22,7 @@ Import <b>SOMotionDetector.h"</b> file and implement <br><SOMotionDetectorDelega
 
 Set SOMotionDetector's delegate to self
 <pre>
-    [SOMotionDetector sharedInstance].delegate = self;
+[SOMotionDetector sharedInstance].delegate = self;
 </pre>
 
 Implement delegate's methods 

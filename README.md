@@ -14,7 +14,7 @@ Link <b>CoreMotion.framework</b>, <b>CoreLocation.framework</b>.
 Import <b>SOMotionDetector.h"</b> file and implement <br><SOMotionDetectorDelegate></b> protocol.
 
 <pre>
-#import "SOMotionDetector.h" 
+#import "SOMotionDetector.h
 @interface ViewController ()<SOMotionDetectorDelegate>
 
 @end

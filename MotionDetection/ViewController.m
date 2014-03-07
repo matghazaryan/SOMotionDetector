@@ -29,13 +29,11 @@
 
 @interface ViewController ()<SOMotionDetectorDelegate>
 {
-    int shakeCount;
+
 }
 @property (weak, nonatomic) IBOutlet UILabel *speedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *motionTypeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *shakingLabel;
-@property (weak, nonatomic) IBOutlet UILabel *horizontalAccurayLabel;
-@property (weak, nonatomic) IBOutlet UILabel *verticalAccuracyLabel;
+@property (weak, nonatomic) IBOutlet UILabel *isShakingLabel;
 
 @end
 
@@ -45,9 +43,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    shakeCount = 0;
+
     [SOMotionDetector sharedInstance].delegate = self;
     [[SOMotionDetector sharedInstance] startDetection];
+
 }
 
 #pragma mark - MotiionDetector Delegate
@@ -61,7 +60,6 @@
         case MotionTypeWalking:
             type = @"Walking";
             break;
-
         case MotionTypeRunning:
             type = @"Running";
             break;
@@ -70,24 +68,18 @@
             break;
     }
     
-    self.speedLabel.text = [NSString stringWithFormat:@"%.4f m/s",motionDetector.currentSpeed];
     self.motionTypeLabel.text = type;
-    
-//    self.shakingLabel.text = motionDetector.isShaking ? @"With Shake":@"Not Shake";
 }
 
 - (void)motionDetector:(SOMotionDetector *)motionDetector locationChanged:(CLLocation *)location
 {
-    self.speedLabel.text = [NSString stringWithFormat:@"%.4f m/s",motionDetector.currentSpeed];
-
-    
-    self.horizontalAccurayLabel.text = [NSString stringWithFormat:@"Horizontal accuracy: %f",location.horizontalAccuracy];
-    self.verticalAccuracyLabel.text  = [NSString stringWithFormat:@"Vertical   accuracy: %f",location.verticalAccuracy];
+    self.speedLabel.text = [NSString stringWithFormat:@"%.2f km/h",motionDetector.currentSpeed / 0.36f];
 }
 
 - (void)motionDetector:(SOMotionDetector *)motionDetector accelerationChanged:(CMAcceleration)acceleration
 {
-    self.shakingLabel.text = motionDetector.isShaking ? @"With Shake":@"Not Shake";
+    BOOL isShaking = motionDetector.isShaking;
+    self.isShakingLabel.text = isShaking ? @"shaking":@"not shaking";
 }
 
 @end

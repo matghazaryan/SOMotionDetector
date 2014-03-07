@@ -25,6 +25,8 @@
 		3E0EFF5518C8687C00F9C33B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0EFF5418C8687C00F9C33B /* CoreLocation.framework */; };
 		3E757C5C18C9B8F1003D7D49 /* SOLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E757C5918C9B8F1003D7D49 /* SOLocationManager.m */; };
 		3E757C5D18C9B8F1003D7D49 /* SOMotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E757C5B18C9B8F1003D7D49 /* SOMotionDetector.m */; };
+		3E757C6018C9CFD3003D7D49 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 3E757C5F18C9CFD3003D7D49 /* DS-DIGI.TTF */; };
+		3E757C6218C9D0A6003D7D49 /* UIView+Localizable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E757C6118C9D0A6003D7D49 /* UIView+Localizable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,8 @@
 		3E757C5918C9B8F1003D7D49 /* SOLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOLocationManager.m; sourceTree = "<group>"; };
 		3E757C5A18C9B8F1003D7D49 /* SOMotionDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOMotionDetector.h; sourceTree = "<group>"; };
 		3E757C5B18C9B8F1003D7D49 /* SOMotionDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOMotionDetector.m; sourceTree = "<group>"; };
+		3E757C5F18C9CFD3003D7D49 /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGI.TTF"; sourceTree = "<group>"; };
+		3E757C6118C9D0A6003D7D49 /* UIView+Localizable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Localizable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,7 @@
 		3E0EFF1E18C85C5400F9C33B /* MotionDetection */ = {
 			isa = PBXGroup;
 			children = (
+				3E757C6118C9D0A6003D7D49 /* UIView+Localizable.m */,
 				3E757C5718C9B8F1003D7D49 /* SOMotionDetector */,
 				3E0EFF2718C85C5400F9C33B /* AppDelegate.h */,
 				3E0EFF2818C85C5400F9C33B /* AppDelegate.m */,
@@ -140,6 +145,7 @@
 		3E0EFF1F18C85C5400F9C33B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3E757C5E18C9CF94003D7D49 /* Fonts */,
 				3E0EFF2A18C85C5400F9C33B /* Main.storyboard */,
 				3E0EFF2018C85C5400F9C33B /* MotionDetection-Info.plist */,
 				3E0EFF2118C85C5400F9C33B /* InfoPlist.strings */,
@@ -177,6 +183,14 @@
 			);
 			path = SOMotionDetector;
 			sourceTree = SOURCE_ROOT;
+		};
+		3E757C5E18C9CF94003D7D49 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3E757C5F18C9CFD3003D7D49 /* DS-DIGI.TTF */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -254,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E757C6018C9CFD3003D7D49 /* DS-DIGI.TTF in Resources */,
 				3E0EFF3118C85C5400F9C33B /* Images.xcassets in Resources */,
 				3E0EFF2318C85C5400F9C33B /* InfoPlist.strings in Resources */,
 				3E0EFF2C18C85C5400F9C33B /* Main.storyboard in Resources */,
@@ -276,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E0EFF2F18C85C5400F9C33B /* ViewController.m in Sources */,
+				3E757C6218C9D0A6003D7D49 /* UIView+Localizable.m in Sources */,
 				3E0EFF2918C85C5400F9C33B /* AppDelegate.m in Sources */,
 				3E0EFF2518C85C5400F9C33B /* main.m in Sources */,
 				3E757C5C18C9B8F1003D7D49 /* SOLocationManager.m in Sources */,

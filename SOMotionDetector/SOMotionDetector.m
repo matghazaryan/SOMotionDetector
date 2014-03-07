@@ -31,7 +31,7 @@ CGFloat kMaximumWalkingSpeed = 1.9f;
 CGFloat kMaximumRunningSpeed = 7.5f;
 CGFloat kMinimumRunningAcceleration = 3.5f;
 
-@interface SOMotionDetector()<CLLocationManagerDelegate>
+@interface SOMotionDetector()
 
 @property (strong, nonatomic) NSTimer *shakeDetectingTimer;
 
@@ -142,29 +142,31 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
     {
         self.previouseMotionType = self.motionType;
         
-        if (self.delegate && [self.delegate respondsToSelector:@selector(motionDetector:motionTypeChanged:)])
-        {
-            [self.delegate motionDetector:self motionTypeChanged:self.motionType];
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (self.delegate && [self.delegate respondsToSelector:@selector(motionDetector:motionTypeChanged:)])
+            {
+                [self.delegate motionDetector:self motionTypeChanged:self.motionType];
+            }
+        });
     }
 }
 
 - (void)detectShaking
 {
     //Array for collecting acceleration for last one seconds period.
-    static NSMutableArray *shakeDataForTwoOneSec = nil;
+    static NSMutableArray *shakeDataForOneSec = nil;
     //Counter for calculating complition of one second interval
     static float currentFiringTimeInterval = 0.0f;
     
     currentFiringTimeInterval += 0.01f;
     if (currentFiringTimeInterval < 1.0f) // if one second time intervall not completed yet
     {
-        if (!shakeDataForTwoOneSec)
-            shakeDataForTwoOneSec = [NSMutableArray array];
+        if (!shakeDataForOneSec)
+            shakeDataForOneSec = [NSMutableArray array];
         
         // Add current acceleration to array
         NSValue *boxedAcceleration = [NSValue value:&_acceleration withObjCType:@encode(CMAcceleration)];
-        [shakeDataForTwoOneSec addObject:boxedAcceleration];
+        [shakeDataForOneSec addObject:boxedAcceleration];
     }
     else
     {
@@ -172,7 +174,7 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
         // we'll determine it as shaked in all this one second interval.
         
         int shakeCount = 0;
-        for (NSValue *boxedAcceleration in shakeDataForTwoOneSec) {
+        for (NSValue *boxedAcceleration in shakeDataForOneSec) {
             CMAcceleration acceleration;
             [boxedAcceleration getValue:&acceleration];
          
@@ -191,8 +193,7 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
         }
         _isShaking = shakeCount > 0;
         
-        
-        shakeDataForTwoOneSec = nil;
+        shakeDataForOneSec = nil;
         currentFiringTimeInterval = 0.0f;
     }
 }
@@ -205,11 +206,13 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
     if (_currentSpeed < 0)
         _currentSpeed = 0;
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(motionDetector:locationChanged:)])
-    {
-        [self.delegate motionDetector:self locationChanged:self.currentLocation];
-    }
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.delegate && [self.delegate respondsToSelector:@selector(motionDetector:locationChanged:)])
+        {
+            [self.delegate motionDetector:self locationChanged:self.currentLocation];
+        }
+    });
+
     [self calculateMotionType];
 }
 @end

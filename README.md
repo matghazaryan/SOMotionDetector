@@ -16,7 +16,7 @@ Copy <b>SOMotionDetector</b> folder to your project.
 
 Link <b>CoreMotion.framework</b>, <b>CoreLocation.framework</b>.
 
-Import <b>SOMotionDetector.h"</b> file and implement <br><SOMotionDetectorDelegate></b> protocol.
+Import <b>"SOMotionDetector.h"</b> file and implement <br><SOMotionDetectorDelegate></b> protocol.
 
 ```ObjC
 #import "SOMotionDetector.h

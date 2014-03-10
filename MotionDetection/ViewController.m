@@ -80,6 +80,8 @@
 {
     BOOL isShaking = motionDetector.isShaking;
     self.isShakingLabel.text = isShaking ? @"shaking":@"not shaking";
+    
+    NSLog(@"%.2f   %.2f   %.2f",fabs(acceleration.x),fabs(acceleration.y),fabs(acceleration.z));
 }
 
 @end

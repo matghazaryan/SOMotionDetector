@@ -181,11 +181,13 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
             /*********************************
              *       Detecting shaking
              *********************************/
-            double accX = fabs(acceleration.x);
-            double accY = fabs(acceleration.y);
-            double accZ = fabs(acceleration.z);
+            double accX_2 = powf(acceleration.x,2);
+            double accY_2 = powf(acceleration.y,2);
+            double accZ_2 = powf(acceleration.z,2);
             
-            if (!(accX < kMinimumRunningAcceleration && accY < kMinimumRunningAcceleration && accZ < kMinimumRunningAcceleration))
+            double vectorSum = sqrt(accX_2 + accY_2 + accZ_2);
+            
+            if (vectorSum >= kMinimumRunningAcceleration)
             {
                 shakeCount++;
             }

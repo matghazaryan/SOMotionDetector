@@ -73,7 +73,7 @@
 
 - (void)motionDetector:(SOMotionDetector *)motionDetector locationChanged:(CLLocation *)location
 {
-    self.speedLabel.text = [NSString stringWithFormat:@"%.2f km/h",motionDetector.currentSpeed / 0.36f];
+    self.speedLabel.text = [NSString stringWithFormat:@"%.2f km/h",motionDetector.currentSpeed * 3.6f];
 }
 
 - (void)motionDetector:(SOMotionDetector *)motionDetector accelerationChanged:(CMAcceleration)acceleration

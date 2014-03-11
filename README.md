@@ -6,7 +6,7 @@ Simple library to detect motion for iOS by <b> arturdev </b>.
 Based on location updates and acceleration.
 
 ###Requierments
-iOS > 6.0 
+iOS >= 6.0 
 
 Compatible with <b>iOS 7</b>
 

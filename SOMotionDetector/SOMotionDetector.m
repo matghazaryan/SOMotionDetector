@@ -50,7 +50,7 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
     static SOMotionDetector *instance = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        instance = [[self alloc]init];
+        instance = [[self alloc] init];
     });
     
     return instance;
@@ -120,15 +120,15 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
 #pragma mark - Private Methods
 - (void)calculateMotionType
 {
-    if (self.currentLocation.speed < kMinimumSpeed)
+    if (_currentSpeed < kMinimumSpeed)
     {
         _motionType = MotionTypeNotMoving;
     }
-    else if (self.currentLocation.speed <= kMaximumWalkingSpeed)
+    else if (_currentSpeed <= kMaximumWalkingSpeed)
     {
         _motionType = _isShaking ? MotionTypeRunning : MotionTypeWalking;
     }
-    else if (self.currentLocation.speed <= kMaximumRunningSpeed)
+    else if (_currentSpeed <= kMaximumRunningSpeed)
     {
         _motionType = _isShaking ? MotionTypeRunning : MotionTypeAutomotive;
     }

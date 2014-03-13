@@ -101,3 +101,16 @@ CUSTOMIZATION
 - (void)setMinimumRunningAcceleration:(CGFloat)acceleration;
 
 ```
+
+### Installation with CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries installation in your projects.
+
+#### Podfile
+
+```ruby
+pod "LGBluetooth", "~> 1.1.1"
+```
+
+<h2>LICENSE</h2>
+SOMotionDetector is under MIT License (see LICENSE file)

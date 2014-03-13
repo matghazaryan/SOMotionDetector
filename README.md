@@ -109,7 +109,7 @@ CUSTOMIZATION
 #### Podfile
 
 ```ruby
-pod "LGBluetooth", "~> 1.1.1"
+pod "SOMotionDetector", "~> 1.1.1"
 ```
 
 <h2>LICENSE</h2>

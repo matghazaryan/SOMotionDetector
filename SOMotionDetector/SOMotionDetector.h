@@ -71,7 +71,7 @@ typedef enum
  * Set this parameter before calling startDetection method.
  * Available only on devices that have M7 chip. At this time only the iPhone 5S, the iPad Air and iPad mini with retina display have the M7 coprocessor.
  */
-@property (nonatomic) BOOL useM7IfAvailable;
+@property (nonatomic) BOOL useM7IfAvailable NS_AVAILABLE_IOS(7_0);
 
 
 /**

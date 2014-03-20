@@ -45,7 +45,10 @@
 	// Do any additional setup after loading the view, typically from a nib.
 
     [SOMotionDetector sharedInstance].delegate = self;
-    [SOMotionDetector sharedInstance].useM7IfAvailable = YES; //Use M7 chip if available, otherwise use lib's algorithm
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
+    {
+        [SOMotionDetector sharedInstance].useM7IfAvailable = YES; //Use M7 chip if available, otherwise use lib's algorithm
+    }
     [[SOMotionDetector sharedInstance] startDetection];
 
 }

@@ -59,6 +59,13 @@ typedef enum
 @property (nonatomic, readonly) CMAcceleration acceleration;
 @property (nonatomic, readonly) BOOL isShaking;
 
+
+#pragma mark - Methods
+- (void)startDetection;
+- (void)stopDetection;
+
+#pragma mark - Customization Methods
+
 /**
  * Set this parameter to YES if you want to use M7 chip to detect more exact motion type. By default is No.
  * Set this parameter before calling startDetection method.
@@ -66,11 +73,6 @@ typedef enum
  */
 @property (nonatomic) BOOL useM7IfAvailable;
 
-#pragma mark - Methods
-- (void)startDetection;
-- (void)stopDetection;
-
-#pragma mark - Customization Methods
 
 /**
  *@param speed  The minimum speed value less than which will be considered as not moving state

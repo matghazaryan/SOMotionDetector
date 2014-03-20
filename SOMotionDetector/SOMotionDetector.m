@@ -40,6 +40,8 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
 
 #pragma mark - Accelerometer manager
 @property (strong, nonatomic) CMMotionManager *motionManager;
+@property (strong, nonatomic) CMMotionActivityManager *motionActivityManager;
+
 
 @end
 
@@ -86,6 +88,48 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
              }
          });
      }];
+    
+    if (self.useM7IfAvailable && [CMMotionActivityManager isActivityAvailable])
+    {
+        if (!self.motionActivityManager)
+        {
+            self.motionActivityManager = [[CMMotionActivityManager alloc] init];
+        }
+        
+        [self.motionActivityManager startActivityUpdatesToQueue:[[NSOperationQueue alloc] init] withHandler:^(CMMotionActivity *activity) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                if (activity.walking)
+                {
+                    _motionType = MotionTypeWalking;
+                }
+                else if (activity.running)
+                {
+                    _motionType = MotionTypeRunning;
+                }
+                else if (activity.automotive)
+                {
+                    _motionType = MotionTypeAutomotive;
+                }
+                else if (activity.stationary || activity.unknown)
+                {
+                    _motionType = MotionTypeNotMoving;
+                }
+                
+                // If type was changed, then call delegate method
+                if (self.motionType != self.previouseMotionType)
+                {
+                    self.previouseMotionType = self.motionType;
+                    
+                    if (self.delegate && [self.delegate respondsToSelector:@selector(motionDetector:motionTypeChanged:)])
+                    {
+                        [self.delegate motionDetector:self motionTypeChanged:self.motionType];
+                    }
+                }
+            });
+
+        }];
+    }
 }
 
 - (void)stopDetection
@@ -95,6 +139,7 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
     
     [[SOLocationManager sharedInstance] stop];
     [self.motionManager stopAccelerometerUpdates];
+    [self.motionActivityManager stopActivityUpdates];
 }
 
 #pragma mark - Customization Methods
@@ -120,6 +165,11 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
 #pragma mark - Private Methods
 - (void)calculateMotionType
 {
+    if (self.useM7IfAvailable && [CMMotionActivityManager isActivityAvailable])
+    {
+        return;
+    }
+    
     if (_currentSpeed < kMinimumSpeed)
     {
         _motionType = MotionTypeNotMoving;

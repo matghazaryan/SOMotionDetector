@@ -45,6 +45,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
 
     [SOMotionDetector sharedInstance].delegate = self;
+    [SOMotionDetector sharedInstance].useM7IfAvailable = self; //
     [[SOMotionDetector sharedInstance] startDetection];
 
 }
@@ -80,8 +81,6 @@
 {
     BOOL isShaking = motionDetector.isShaking;
     self.isShakingLabel.text = isShaking ? @"shaking":@"not shaking";
-    
-    NSLog(@"%.2f   %.2f   %.2f",fabs(acceleration.x),fabs(acceleration.y),fabs(acceleration.z));
 }
 
 @end

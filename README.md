@@ -116,7 +116,7 @@ CUSTOMIZATION
 #### Podfile
 
 ```ruby
-pod "SOMotionDetector", "~> 1.0.0"
+pod "SOMotionDetector", "~> 1.0.1"
 ```
 
 <h2>LICENSE</h2>

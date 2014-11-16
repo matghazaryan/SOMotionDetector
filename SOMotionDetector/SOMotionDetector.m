@@ -36,7 +36,7 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
 @property (strong, nonatomic) NSTimer *shakeDetectingTimer;
 
 @property (strong, nonatomic) CLLocation *currentLocation;
-@property (nonatomic) SOMotionType previouseMotionType;
+@property (nonatomic) SOMotionType previousMotionType;
 
 #pragma mark - Accelerometer manager
 @property (strong, nonatomic) CMMotionManager *motionManager;
@@ -117,9 +117,9 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
                 }
                 
                 // If type was changed, then call delegate method
-                if (self.motionType != self.previouseMotionType)
+                if (self.motionType != self.previousMotionType)
                 {
-                    self.previouseMotionType = self.motionType;
+                    self.previousMotionType = self.motionType;
                     
                     if (self.delegate && [self.delegate respondsToSelector:@selector(motionDetector:motionTypeChanged:)])
                     {
@@ -188,9 +188,9 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
     }
     
     // If type was changed, then call delegate method
-    if (self.motionType != self.previouseMotionType)
+    if (self.motionType != self.previousMotionType)
     {
-        self.previouseMotionType = self.motionType;
+        self.previousMotionType = self.motionType;
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (self.delegate && [self.delegate respondsToSelector:@selector(motionDetector:motionTypeChanged:)])

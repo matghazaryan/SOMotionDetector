@@ -70,6 +70,17 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
     return self;
 }
 
++ (BOOL)motionHardwareAvailable
+{
+    static BOOL isAvailable = NO;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        isAvailable = [CMMotionActivityManager isActivityAvailable];
+    });
+    
+    return isAvailable;
+}
+
 #pragma mark - Public Methods
 - (void)startDetection
 {
@@ -89,7 +100,7 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
          });
      }];
     
-    if (self.useM7IfAvailable && [CMMotionActivityManager isActivityAvailable])
+    if (self.useM7IfAvailable && [SOMotionDetector motionHardwareAvailable])
     {
         if (!self.motionActivityManager)
         {
@@ -165,7 +176,7 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
 #pragma mark - Private Methods
 - (void)calculateMotionType
 {
-    if (self.useM7IfAvailable && [CMMotionActivityManager isActivityAvailable])
+    if (self.useM7IfAvailable && [SOMotionDetector motionHardwareAvailable])
     {
         return;
     }

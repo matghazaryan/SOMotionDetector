@@ -33,17 +33,21 @@ Import <b>"SOMotionDetector.h"</b> file and implement <br><SOMotionDetectorDeleg
 Set SOMotionDetector's callbacks
 ```ObjC
 [SOMotionDetector sharedInstance].motionTypeChangedBlock = ^(SOMotionType motionType) {
-        
+    //...
 };
     
 [SOMotionDetector sharedInstance].locationChangedBlock = ^(CLLocation *location) {
-
+    //...
 };
 
 [SOMotionDetector sharedInstance].accelerationChangedBlock = ^(CMAcceleration acceleration) {
-    
+    //...    
 };
 ```
+
+###NOTE!
+To Support iOS 8.* you must add in your info.plist file on of the following keys: <br>
+`NSLocationAlwaysUsageDescription`<br> `NSLocationWhenInUseUsageDescription`
 
 You are done! 
 

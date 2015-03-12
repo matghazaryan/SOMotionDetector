@@ -52,7 +52,11 @@ typedef enum
 + (SOMotionDetector *)sharedInstance;
 
 #pragma mark - Properties
-@property (weak, nonatomic) id<SOMotionDetectorDelegate> delegate;
+@property (weak, nonatomic) id<SOMotionDetectorDelegate> delegate DEPRECATED_MSG_ATTRIBUTE(" Use blocks instead");
+
+@property (copy) void (^motionTypeChangedBlock) (SOMotionType motionType);
+@property (copy) void (^locationChangedBlock) (CLLocation *location);
+@property (copy) void (^accelerationChangedBlock) (CMAcceleration acceleration);
 
 @property (nonatomic, readonly) SOMotionType motionType;
 @property (nonatomic, readonly) double currentSpeed;

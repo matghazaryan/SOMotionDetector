@@ -44,46 +44,41 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 
-    [SOMotionDetector sharedInstance].delegate = self;
-    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0"))
-    {
+    __weak ViewController *weakSelf = self;
+    [SOMotionDetector sharedInstance].motionTypeChangedBlock = ^(SOMotionType motionType) {
+        NSString *type = @"";
+        switch (motionType) {
+            case MotionTypeNotMoving:
+                type = @"Not moving";
+                break;
+            case MotionTypeWalking:
+                type = @"Walking";
+                break;
+            case MotionTypeRunning:
+                type = @"Running";
+                break;
+            case MotionTypeAutomotive:
+                type = @"Automotive";
+                break;
+        }
+        
+        weakSelf.motionTypeLabel.text = type;
+    };
+    
+    [SOMotionDetector sharedInstance].locationChangedBlock = ^(CLLocation *location) {
+        weakSelf.speedLabel.text = [NSString stringWithFormat:@"%.2f km/h",[SOMotionDetector sharedInstance].currentSpeed * 3.6f];
+    };
+    
+    [SOMotionDetector sharedInstance].accelerationChangedBlock = ^(CMAcceleration acceleration) {
+        BOOL isShaking = [SOMotionDetector sharedInstance].isShaking;
+        weakSelf.isShakingLabel.text = isShaking ? @"shaking":@"not shaking";
+    };
+    
+    if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7.0")) {
         [SOMotionDetector sharedInstance].useM7IfAvailable = YES; //Use M7 chip if available, otherwise use lib's algorithm
     }
-    [[SOMotionDetector sharedInstance] startDetection];
-
-}
-
-#pragma mark - MotiionDetector Delegate
-- (void)motionDetector:(SOMotionDetector *)motionDetector motionTypeChanged:(SOMotionType)motionType
-{
-    NSString *type = @"";
-    switch (motionType) {
-        case MotionTypeNotMoving:
-            type = @"Not moving";
-            break;
-        case MotionTypeWalking:
-            type = @"Walking";
-            break;
-        case MotionTypeRunning:
-            type = @"Running";
-            break;
-        case MotionTypeAutomotive:
-            type = @"Automotive";
-            break;
-    }
     
-    self.motionTypeLabel.text = type;
-}
-
-- (void)motionDetector:(SOMotionDetector *)motionDetector locationChanged:(CLLocation *)location
-{
-    self.speedLabel.text = [NSString stringWithFormat:@"%.2f km/h",motionDetector.currentSpeed * 3.6f];
-}
-
-- (void)motionDetector:(SOMotionDetector *)motionDetector accelerationChanged:(CMAcceleration)acceleration
-{
-    BOOL isShaking = motionDetector.isShaking;
-    self.isShakingLabel.text = isShaking ? @"shaking":@"not shaking";
+    [[SOMotionDetector sharedInstance] startDetection];
 }
 
 @end

@@ -46,12 +46,12 @@ Set SOMotionDetector's callbacks
 ```
 
 ###NOTE!
-To Support iOS 8.* you must add in your info.plist file on of the following keys: <br>
+To Support iOS 8.* you must add in your info.plist file one of the following keys: <br>
 `NSLocationAlwaysUsageDescription`<br> `NSLocationWhenInUseUsageDescription`
 
 You are done! 
 
-Now to start detection motion just call
+Now to start motion detection just call
 ```ObjC 
 [[SOMotionDetector sharedInstance] startDetection];
 ```

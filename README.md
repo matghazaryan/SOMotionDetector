@@ -30,27 +30,19 @@ Import <b>"SOMotionDetector.h"</b> file and implement <br><SOMotionDetectorDeleg
 @end
 ```
 
-Set SOMotionDetector's delegate to self
+Set SOMotionDetector's callbacks
 ```ObjC
-[SOMotionDetector sharedInstance].delegate = self;
-```
-
-Implement delegate methods 
-```ObjC
-- (void)motionDetector:(SOMotionDetector *)motionDetector motionTypeChanged:(SOMotionType)motionType
-{
-
-}
-
-- (void)motionDetector:(SOMotionDetector *)motionDetector locationChanged:(CLLocation *)location
-{
-
-}
-
-- (void)motionDetector:(SOMotionDetector *)motionDetector accelerationChanged:(CMAcceleration)acceleration
-{
+[SOMotionDetector sharedInstance].motionTypeChangedBlock = ^(SOMotionType motionType) {
+        
+};
     
-}
+[SOMotionDetector sharedInstance].locationChangedBlock = ^(CLLocation *location) {
+
+};
+
+[SOMotionDetector sharedInstance].accelerationChangedBlock = ^(CMAcceleration acceleration) {
+    
+};
 ```
 
 You are done! 

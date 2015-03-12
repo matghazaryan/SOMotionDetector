@@ -16,11 +16,6 @@
 		3E0EFF2C18C85C5400F9C33B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E0EFF2A18C85C5400F9C33B /* Main.storyboard */; };
 		3E0EFF2F18C85C5400F9C33B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EFF2E18C85C5400F9C33B /* ViewController.m */; };
 		3E0EFF3118C85C5400F9C33B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E0EFF3018C85C5400F9C33B /* Images.xcassets */; };
-		3E0EFF3818C85C5400F9C33B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0EFF3718C85C5400F9C33B /* XCTest.framework */; };
-		3E0EFF3918C85C5400F9C33B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0EFF1818C85C5400F9C33B /* Foundation.framework */; };
-		3E0EFF3A18C85C5400F9C33B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0EFF1C18C85C5400F9C33B /* UIKit.framework */; };
-		3E0EFF4218C85C5400F9C33B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3E0EFF4018C85C5400F9C33B /* InfoPlist.strings */; };
-		3E0EFF4418C85C5400F9C33B /* MotionDetectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E0EFF4318C85C5400F9C33B /* MotionDetectionTests.m */; };
 		3E0EFF5318C8649500F9C33B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0EFF5218C8649500F9C33B /* CoreMotion.framework */; };
 		3E0EFF5518C8687C00F9C33B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E0EFF5418C8687C00F9C33B /* CoreLocation.framework */; };
 		3E757C5C18C9B8F1003D7D49 /* SOLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E757C5918C9B8F1003D7D49 /* SOLocationManager.m */; };
@@ -28,16 +23,6 @@
 		3E757C6018C9CFD3003D7D49 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 3E757C5F18C9CFD3003D7D49 /* DS-DIGI.TTF */; };
 		3E757C6218C9D0A6003D7D49 /* UIView+Localizable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E757C6118C9D0A6003D7D49 /* UIView+Localizable.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		3E0EFF3B18C85C5400F9C33B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3E0EFF0D18C85C5400F9C33B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 3E0EFF1418C85C5400F9C33B;
-			remoteInfo = MotionDetection;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3E0EFF1518C85C5400F9C33B /* MotionDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MotionDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,11 +39,7 @@
 		3E0EFF2D18C85C5400F9C33B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3E0EFF2E18C85C5400F9C33B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3E0EFF3018C85C5400F9C33B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3E0EFF3618C85C5400F9C33B /* MotionDetectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MotionDetectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E0EFF3718C85C5400F9C33B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		3E0EFF3F18C85C5400F9C33B /* MotionDetectionTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MotionDetectionTests-Info.plist"; sourceTree = "<group>"; };
-		3E0EFF4118C85C5400F9C33B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3E0EFF4318C85C5400F9C33B /* MotionDetectionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionDetectionTests.m; sourceTree = "<group>"; };
 		3E0EFF5218C8649500F9C33B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		3E0EFF5418C8687C00F9C33B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		3E757C5818C9B8F1003D7D49 /* SOLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOLocationManager.h; sourceTree = "<group>"; };
@@ -82,16 +63,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3E0EFF3318C85C5400F9C33B /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3E0EFF3818C85C5400F9C33B /* XCTest.framework in Frameworks */,
-				3E0EFF3A18C85C5400F9C33B /* UIKit.framework in Frameworks */,
-				3E0EFF3918C85C5400F9C33B /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -99,7 +70,6 @@
 			isa = PBXGroup;
 			children = (
 				3E0EFF1E18C85C5400F9C33B /* MotionDetection */,
-				3E0EFF3D18C85C5400F9C33B /* MotionDetectionTests */,
 				3E0EFF1718C85C5400F9C33B /* Frameworks */,
 				3E0EFF1618C85C5400F9C33B /* Products */,
 			);
@@ -109,7 +79,6 @@
 			isa = PBXGroup;
 			children = (
 				3E0EFF1518C85C5400F9C33B /* MotionDetection.app */,
-				3E0EFF3618C85C5400F9C33B /* MotionDetectionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,24 +124,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3E0EFF3D18C85C5400F9C33B /* MotionDetectionTests */ = {
-			isa = PBXGroup;
-			children = (
-				3E0EFF4318C85C5400F9C33B /* MotionDetectionTests.m */,
-				3E0EFF3E18C85C5400F9C33B /* Supporting Files */,
-			);
-			path = MotionDetectionTests;
-			sourceTree = "<group>";
-		};
-		3E0EFF3E18C85C5400F9C33B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				3E0EFF3F18C85C5400F9C33B /* MotionDetectionTests-Info.plist */,
-				3E0EFF4018C85C5400F9C33B /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		3E757C5718C9B8F1003D7D49 /* SOMotionDetector */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,35 +163,21 @@
 			productReference = 3E0EFF1518C85C5400F9C33B /* MotionDetection.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3E0EFF3518C85C5400F9C33B /* MotionDetectionTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 3E0EFF4A18C85C5400F9C33B /* Build configuration list for PBXNativeTarget "MotionDetectionTests" */;
-			buildPhases = (
-				3E0EFF3218C85C5400F9C33B /* Sources */,
-				3E0EFF3318C85C5400F9C33B /* Frameworks */,
-				3E0EFF3418C85C5400F9C33B /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				3E0EFF3C18C85C5400F9C33B /* PBXTargetDependency */,
-			);
-			name = MotionDetectionTests;
-			productName = MotionDetectionTests;
-			productReference = 3E0EFF3618C85C5400F9C33B /* MotionDetectionTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		3E0EFF0D18C85C5400F9C33B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0620;
 				ORGANIZATIONNAME = "Artur Mkrtchyan";
 				TargetAttributes = {
-					3E0EFF3518C85C5400F9C33B = {
-						TestTargetID = 3E0EFF1418C85C5400F9C33B;
+					3E0EFF1418C85C5400F9C33B = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -258,7 +195,6 @@
 			projectRoot = "";
 			targets = (
 				3E0EFF1418C85C5400F9C33B /* MotionDetection */,
-				3E0EFF3518C85C5400F9C33B /* MotionDetectionTests */,
 			);
 		};
 /* End PBXProject section */
@@ -272,14 +208,6 @@
 				3E0EFF3118C85C5400F9C33B /* Images.xcassets in Resources */,
 				3E0EFF2318C85C5400F9C33B /* InfoPlist.strings in Resources */,
 				3E0EFF2C18C85C5400F9C33B /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		3E0EFF3418C85C5400F9C33B /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3E0EFF4218C85C5400F9C33B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,23 +227,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3E0EFF3218C85C5400F9C33B /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3E0EFF4418C85C5400F9C33B /* MotionDetectionTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		3E0EFF3C18C85C5400F9C33B /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 3E0EFF1418C85C5400F9C33B /* MotionDetection */;
-			targetProxy = 3E0EFF3B18C85C5400F9C33B /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3E0EFF2118C85C5400F9C33B /* InfoPlist.strings */ = {
@@ -334,14 +246,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		3E0EFF4018C85C5400F9C33B /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3E0EFF4118C85C5400F9C33B /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -349,7 +253,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -379,7 +282,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s";
 			};
@@ -389,7 +292,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -428,6 +330,7 @@
 				GCC_PREFIX_HEADER = "MotionDetection/MotionDetection-Prefix.pch";
 				INFOPLIST_FILE = "MotionDetection/MotionDetection-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -442,50 +345,9 @@
 				GCC_PREFIX_HEADER = "MotionDetection/MotionDetection-Prefix.pch";
 				INFOPLIST_FILE = "MotionDetection/MotionDetection-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		3E0EFF4B18C85C5400F9C33B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MotionDetection.app/MotionDetection";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MotionDetection/MotionDetection-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "MotionDetectionTests/MotionDetectionTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		3E0EFF4C18C85C5400F9C33B /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MotionDetection.app/MotionDetection";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MotionDetection/MotionDetection-Prefix.pch";
-				INFOPLIST_FILE = "MotionDetectionTests/MotionDetectionTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -506,15 +368,6 @@
 			buildConfigurations = (
 				3E0EFF4818C85C5400F9C33B /* Debug */,
 				3E0EFF4918C85C5400F9C33B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		3E0EFF4A18C85C5400F9C33B /* Build configuration list for PBXNativeTarget "MotionDetectionTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				3E0EFF4B18C85C5400F9C33B /* Debug */,
-				3E0EFF4C18C85C5400F9C33B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -107,4 +107,12 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:LOCATION_DID_FAILED_NOTIFICATION object:error userInfo:@{@"error":error}];
 }
 
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    if (status == kCLAuthorizationStatusNotDetermined && [self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
+        [self.locationManager requestAlwaysAuthorization];
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:LOCATION_AUTHORIZATION_STATUS_CHANGED_NOTIFICATION object:self userInfo:@{@"status":@(status)}];
+}
+
 @end

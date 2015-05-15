@@ -213,7 +213,7 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
 {
     //Array for collecting acceleration for last one seconds period.
     static NSMutableArray *shakeDataForOneSec = nil;
-    //Counter for calculating complition of one second interval
+    //Counter for calculating completion of one second interval
     static float currentFiringTimeInterval = 0.0f;
     
     currentFiringTimeInterval += 0.01f;
@@ -227,7 +227,7 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
     }
     else
     {
-        // Now, when one second was elapsed, calculate shake count in this interval. If the will be at least one shake then
+        // Now, when one second was elapsed, calculate shake count in this interval. If there will be at least one shake then
         // we'll determine it as shaked in all this one second interval.
         
         int shakeCount = 0;

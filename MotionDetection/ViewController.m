@@ -26,12 +26,14 @@
 
 #import "ViewController.h"
 #import "SOMotionDetector.h"
+#import "SOStepDetector.h"
 
 @interface ViewController ()<SOMotionDetectorDelegate>
 {
-
+    int stepCount;
 }
 @property (weak, nonatomic) IBOutlet UILabel *speedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stepCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *motionTypeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *isShakingLabel;
 
@@ -79,6 +81,15 @@
     }
     
     [[SOMotionDetector sharedInstance] startDetection];
+    [[SOStepDetector sharedInstance] startDetectionWithUpdateBlock:^(NSError *error) {
+        if (error) {
+            NSLog(@"%@", error.localizedDescription);
+            return;
+        }
+        
+        stepCount++;
+        self.stepCountLabel.text = [NSString stringWithFormat:@"Step count: %d", stepCount];
+    }];
 }
 
 @end

@@ -61,6 +61,12 @@ To stop detection call
 [[SOMotionDetector sharedInstance] stopDetection];
 ```  
 
+To start step counter call
+```ObjC
+    [[SOStepDetector sharedInstance] startDetectionWithUpdateBlock:^(NSError *error) {
+        //...
+    }];
+```
 ###Detecting motion types
 ```ObjC
 typedef enum

@@ -118,7 +118,7 @@ CUSTOMIZATION
 #### Podfile
 
 ```ruby
-pod "SOMotionDetector", "~> 2.0.1" , :git => 'https://github.com/Navirize/SOMotionDetector.git'
+pod 'SOMotionDetector', :git => 'https://github.com/Navirize/SOMotionDetector.git'
 ```
 
 <h2>LICENSE</h2>

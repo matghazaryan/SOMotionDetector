@@ -22,12 +22,9 @@ static char fontNameKey;
     objc_setAssociatedObject(self, &fontNameKey, fontName, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-
 // using for localize storyboard file due to we want to have one storyboard
-
-- (void)awakeFromNib {
-    
-    
+- (void)awakeFromNib
+{
     if ([self.class isSubclassOfClass:[UIButton class]]) {
         UIButton *view = (UIButton *)self;
         NSString *str = NSLocalizedString(view.titleLabel.text, nil);
@@ -35,7 +32,6 @@ static char fontNameKey;
             view.titleLabel.font = [UIFont fontWithName:view.fontName size:view.titleLabel.font.pointSize];
         }
         [view setTitle:str forState:UIControlStateNormal];
-            
     } else if ([self.class isSubclassOfClass:[UILabel class]]) {
         UILabel *view = (UILabel *)self;
         if(self.fontName.length) {
@@ -67,13 +63,12 @@ static char fontNameKey;
         if(self.fontName.length) {
             view.font = [UIFont fontWithName:view.fontName size:view.font.pointSize];
         }
-    } else if([self.class  isSubclassOfClass:[UINavigationBar class]]) {
+    } else if([self.class isSubclassOfClass:[UINavigationBar class]]) {
         UINavigationBar *view = (UINavigationBar *)self;
         view.topItem.title = NSLocalizedString(view.topItem.title, nil);
-    } else if(![self.class  isSubclassOfClass:[UIImageView class]] &&
-              ![self.class  isSubclassOfClass:[UIScrollView class]] &&
-              ![self.class  isSubclassOfClass:[UITableViewCell class]]) {
-        
+    } else if(![self.class isSubclassOfClass:[UIImageView class]] &&
+              ![self.class isSubclassOfClass:[UIScrollView class]] &&
+              ![self.class isSubclassOfClass:[UITableViewCell class]]) {
     }
 }
 

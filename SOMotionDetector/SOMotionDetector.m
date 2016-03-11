@@ -62,7 +62,10 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
 {
     self = [super init];
     if (self) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLocationChangedNotification:) name:LOCATION_DID_CHANGED_NOTIFICATION object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handleLocationChangedNotification:)
+                                                     name:LOCATION_DID_CHANGED_NOTIFICATION
+                                                   object:nil];
         self.motionManager = [[CMMotionManager alloc] init];
     }
     
@@ -85,9 +88,15 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
 {
     [[SOLocationManager sharedInstance] start];
     
-    self.shakeDetectingTimer = [NSTimer scheduledTimerWithTimeInterval:0.01f target:self selector:@selector(detectShaking) userInfo:Nil repeats:YES];
+    self.shakeDetectingTimer = [NSTimer scheduledTimerWithTimeInterval:0.01f
+                                                                target:self
+                                                              selector:@selector(detectShaking)
+                                                              userInfo:Nil
+                                                               repeats:YES];
     
-    [self.motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init] withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+    [self.motionManager startAccelerometerUpdatesToQueue:[[NSOperationQueue alloc] init]
+                                             withHandler:^(CMAccelerometerData *accelerometerData, NSError *error)
+    {
          _acceleration = accelerometerData.acceleration;
          [self calculateMotionType];
          dispatch_async(dispatch_get_main_queue(), ^{
@@ -224,9 +233,7 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
         // Add current acceleration to array
         NSValue *boxedAcceleration = [NSValue value:&_acceleration withObjCType:@encode(CMAcceleration)];
         [shakeDataForOneSec addObject:boxedAcceleration];
-    }
-    else
-    {
+    } else {
         // Now, when one second was elapsed, calculate shake count in this interval. If there will be at least one shake then
         // we'll determine it as shaked in all this one second interval.
         

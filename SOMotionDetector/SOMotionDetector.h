@@ -1,5 +1,5 @@
 //
-//  MotionDetecter.h
+//  SOMotionDetecter.h
 //  MotionDetection
 //
 // The MIT License (MIT)

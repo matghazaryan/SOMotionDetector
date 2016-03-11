@@ -19,6 +19,12 @@
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
         self.locationManager.distanceFilter = kCLDistanceFilterNone;
         self.locationManager.delegate = self;
+        
+        self.significantLocationManager = [[CLLocationManager alloc] init];
+        self.significantLocationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        self.significantLocationManager.distanceFilter = kCLDistanceFilterNone;
+        self.significantLocationManager.delegate = self;
+        
         self.locationType = LocationManagerTypeNone;
     }
     
@@ -38,27 +44,33 @@
 
 - (void)start
 {
+    if (self.allowsBackgroundLocationUpdates) {
+        if ([self.locationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)]) {
+            [self.locationManager setAllowsBackgroundLocationUpdates:YES];
+        }
+    }
     [self.locationManager startUpdatingLocation];
     
-    if (self.locationType == LocationManagerTypeNone)
-    {
+    if (self.locationType == LocationManagerTypeNone) {
         self.locationType = LocationManagerTypeStandart;
-    }
-    else if (self.locationType == LocationManagerTypeSignificant)
-    {
+    } else if (self.locationType == LocationManagerTypeSignificant) {
         self.locationType = LocationManagerTypeSignificant | LocationManagerTypeStandart;
     }
 }
+
 - (void)startSignificant
 {
-    [self.locationManager startMonitoringSignificantLocationChanges];
-    
-    if (self.locationType == LocationManagerTypeNone)
-    {
-        self.locationType = LocationManagerTypeSignificant;
+    if (self.allowsBackgroundLocationUpdates) {
+        if ([self.significantLocationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)]) {
+            [self.significantLocationManager setAllowsBackgroundLocationUpdates:YES];
+        }
     }
-    else if (self.locationType == LocationManagerTypeStandart)
-    {
+    
+    [self.significantLocationManager startMonitoringSignificantLocationChanges];
+    
+    if (self.locationType == LocationManagerTypeNone) {
+        self.locationType = LocationManagerTypeSignificant;
+    } else if (self.locationType == LocationManagerTypeStandart) {
         self.locationType = LocationManagerTypeStandart | LocationManagerTypeSignificant;
     }
 }
@@ -67,13 +79,10 @@
 {
     [self.locationManager stopUpdatingLocation];
     
-    if (self.locationType & LocationManagerTypeSignificant)
-    {
+    if (self.locationType & LocationManagerTypeSignificant) {
         //leave only significant
         self.locationType = LocationManagerTypeSignificant;
-    }
-    else
-    {
+    } else {
         self.locationType = LocationManagerTypeNone;
     }
 }
@@ -82,29 +91,41 @@
 {
     [self.locationManager stopMonitoringSignificantLocationChanges];
 
-    if (self.locationType & LocationManagerTypeStandart)
-    {
+    if (self.locationType & LocationManagerTypeStandart) {
         //leave only significant
         self.locationType = LocationManagerTypeStandart;
-    }
-    else
-    {
+    } else {
         self.locationType = LocationManagerTypeNone;
+    }
+}
+
+- (void)setAllowsBackgroundLocationUpdates:(BOOL)allowsBackgroundLocationUpdates
+{
+    _allowsBackgroundLocationUpdates = allowsBackgroundLocationUpdates;
+    if ([self.locationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)]) {
+        [self.locationManager setAllowsBackgroundLocationUpdates:allowsBackgroundLocationUpdates];
+        [self.significantLocationManager setAllowsBackgroundLocationUpdates:allowsBackgroundLocationUpdates];
     }
 }
 
 #pragma mark - CLLocatiomManager Delegaet
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
-    CLLocation *location = [locations lastObject];
-    self.lastLocation = location;
-    self.lastCoordinate = location.coordinate;
-    [[NSNotificationCenter defaultCenter] postNotificationName:LOCATION_DID_CHANGED_NOTIFICATION object:location userInfo:@{@"location":location}];
+    if (manager == self.locationManager) {
+        CLLocation *location = [locations lastObject];
+        self.lastLocation = location;
+        self.lastCoordinate = location.coordinate;
+        [[NSNotificationCenter defaultCenter] postNotificationName:LOCATION_DID_CHANGED_NOTIFICATION
+                                                            object:location
+                                                          userInfo:@{@"location":location}];
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:LOCATION_DID_FAILED_NOTIFICATION object:error userInfo:@{@"error":error}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:LOCATION_DID_FAILED_NOTIFICATION
+                                                        object:error
+                                                      userInfo:@{@"error":error}];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
@@ -112,7 +133,9 @@
     if (status == kCLAuthorizationStatusNotDetermined && [self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
         [self.locationManager requestAlwaysAuthorization];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:LOCATION_AUTHORIZATION_STATUS_CHANGED_NOTIFICATION object:self userInfo:@{@"status":@(status)}];
+    [[NSNotificationCenter defaultCenter] postNotificationName:LOCATION_AUTHORIZATION_STATUS_CHANGED_NOTIFICATION
+                                                        object:self
+                                                      userInfo:@{@"status":@(status)}];
 }
 
 @end

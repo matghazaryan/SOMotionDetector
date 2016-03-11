@@ -22,6 +22,7 @@
 		3E757C5D18C9B8F1003D7D49 /* SOMotionDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E757C5B18C9B8F1003D7D49 /* SOMotionDetector.m */; };
 		3E757C6018C9CFD3003D7D49 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 3E757C5F18C9CFD3003D7D49 /* DS-DIGI.TTF */; };
 		3E757C6218C9D0A6003D7D49 /* UIView+Localizable.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E757C6118C9D0A6003D7D49 /* UIView+Localizable.m */; };
+		75EE9BA91C92AAD7002E898F /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75EE9BA81C92AAD7002E898F /* Launch Screen.storyboard */; };
 		75F65B4C1B05E9F000D5CCC1 /* SOStepDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = 75F65B4B1B05E9F000D5CCC1 /* SOStepDetector.m */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		3E757C5B18C9B8F1003D7D49 /* SOMotionDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOMotionDetector.m; sourceTree = "<group>"; };
 		3E757C5F18C9CFD3003D7D49 /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGI.TTF"; sourceTree = "<group>"; };
 		3E757C6118C9D0A6003D7D49 /* UIView+Localizable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Localizable.m"; sourceTree = "<group>"; };
+		75EE9BA81C92AAD7002E898F /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		75F65B4A1B05E9F000D5CCC1 /* SOStepDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SOStepDetector.h; sourceTree = "<group>"; };
 		75F65B4B1B05E9F000D5CCC1 /* SOStepDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SOStepDetector.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 				3E0EFF2118C85C5400F9C33B /* InfoPlist.strings */,
 				3E0EFF2418C85C5400F9C33B /* main.m */,
 				3E0EFF2618C85C5400F9C33B /* MotionDetection-Prefix.pch */,
+				75EE9BA81C92AAD7002E898F /* Launch Screen.storyboard */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -174,7 +177,7 @@
 		3E0EFF0D18C85C5400F9C33B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0620;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Artur Mkrtchyan";
 				TargetAttributes = {
 					3E0EFF1418C85C5400F9C33B = {
@@ -212,6 +215,7 @@
 				3E757C6018C9CFD3003D7D49 /* DS-DIGI.TTF in Resources */,
 				3E0EFF3118C85C5400F9C33B /* Images.xcassets in Resources */,
 				3E0EFF2318C85C5400F9C33B /* InfoPlist.strings in Resources */,
+				75EE9BA91C92AAD7002E898F /* Launch Screen.storyboard in Resources */,
 				3E0EFF2C18C85C5400F9C33B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +341,7 @@
 				INFOPLIST_FILE = "MotionDetection/MotionDetection-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "am.socialobjects.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -352,6 +357,7 @@
 				INFOPLIST_FILE = "MotionDetection/MotionDetection-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "am.socialobjects.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

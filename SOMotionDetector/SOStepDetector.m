@@ -55,7 +55,8 @@
         return;
     }
     
-    [self.motionManager startAccelerometerUpdatesToQueue:self.queue withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
+    [self.motionManager startAccelerometerUpdatesToQueue:self.queue
+                                             withHandler:^(CMAccelerometerData *accelerometerData, NSError *error) {
         if (error) {
             if (callback) {
                 dispatch_async(dispatch_get_main_queue(), ^{

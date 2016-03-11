@@ -28,7 +28,7 @@
 #import "SOMotionDetector.h"
 #import "SOStepDetector.h"
 
-@interface ViewController ()<SOMotionDetectorDelegate>
+@interface ViewController ()
 {
     int stepCount;
 }
@@ -44,7 +44,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 
     __weak ViewController *weakSelf = self;
     [SOMotionDetector sharedInstance].motionTypeChangedBlock = ^(SOMotionType motionType) {
@@ -80,7 +79,13 @@
         [SOMotionDetector sharedInstance].useM7IfAvailable = YES; //Use M7 chip if available, otherwise use lib's algorithm
     }
     
+    //This is required for iOS > 9.0 if you want to receive location updates in the background
+    [SOLocationManager sharedInstance].allowsBackgroundLocationUpdates = YES;
+    
+    //Starting motion detector
     [[SOMotionDetector sharedInstance] startDetection];
+    
+    //Starting pedometer
     [[SOStepDetector sharedInstance] startDetectionWithUpdateBlock:^(NSError *error) {
         if (error) {
             NSLog(@"%@", error.localizedDescription);

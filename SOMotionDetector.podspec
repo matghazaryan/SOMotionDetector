@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version      = "1.0.2"
   s.summary      = "Simple library to detect motion type (walking, running, automotive) "
   s.platform     = :ios, '6.0'
-  s.source       = { :git => "https://github.com/SocialObjects-Software/SOMotionDetector.git", :tag => "v1.0.2" }
+  s.source       = { :git => "https://github.com/SocialObjects-Software/SOMotionDetector.git", :tag => "1.0.2" }
   s.description  = <<-DESC
                      Simple library to detect motion for iOS by arturdev.
 

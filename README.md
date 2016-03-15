@@ -8,7 +8,7 @@ Based on location updates and acceleration.
 ###Requierments
 iOS > 6.0 
 
-Compatible with <b>iOS 7</b>
+Compatible with <b>iOS 9</b>
 
 <b>Works on all iOS devices (i.e. not need M7 chip)</b>
 

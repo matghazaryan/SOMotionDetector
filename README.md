@@ -42,6 +42,14 @@ Import <b>"SOMotionDetector.h"</b> file and set SOMotionDetector's callbacks
 };
 ```
 
+If you need to know when location updates were automatically paused due to your app running in the background...
+
+```ObjC
+[SOMotionDetector sharedInstance].locationWasPausedBlock = ^(BOOL changed) {
+    //...    
+};
+```
+
 ###NOTE!
 To Support iOS > 8.0 you must add in your info.plist file one of the following keys: <br>
 `NSLocationAlwaysUsageDescription`<br> `NSLocationWhenInUseUsageDescription`

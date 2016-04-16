@@ -43,6 +43,7 @@ typedef enum
 - (void)motionDetector:(SOMotionDetector *)motionDetector motionTypeChanged:(SOMotionType)motionType;
 - (void)motionDetector:(SOMotionDetector *)motionDetector locationChanged:(CLLocation *)location;
 - (void)motionDetector:(SOMotionDetector *)motionDetector accelerationChanged:(CMAcceleration)acceleration;
+- (void)motionDetector:(SOMotionDetector *)motionDetector locationWasPaused:(BOOL)changed;
 
 @end
 
@@ -57,6 +58,7 @@ typedef enum
 @property (copy) void (^motionTypeChangedBlock) (SOMotionType motionType);
 @property (copy) void (^locationChangedBlock) (CLLocation *location);
 @property (copy) void (^accelerationChangedBlock) (CMAcceleration acceleration);
+@property (copy) void (^locationWasPausedBlock) (BOOL changed);
 
 @property (nonatomic, readonly) SOMotionType motionType;
 @property (nonatomic, readonly) double currentSpeed;

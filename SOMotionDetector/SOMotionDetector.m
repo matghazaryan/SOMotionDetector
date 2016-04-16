@@ -66,6 +66,10 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
                                                  selector:@selector(handleLocationChangedNotification:)
                                                      name:LOCATION_DID_CHANGED_NOTIFICATION
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handleLocationWasPausedNotification:)
+                                                     name:LOCATION_WAS_PAUSED_NOTIFICATION
+                                                   object:nil];
         self.motionManager = [[CMMotionManager alloc] init];
     }
     
@@ -271,7 +275,7 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
     if (_currentSpeed < 0) {
         _currentSpeed = 0;
     }
-    
+
     dispatch_async(dispatch_get_main_queue(), ^{
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
@@ -279,12 +283,29 @@ CGFloat kMinimumRunningAcceleration = 3.5f;
             [self.delegate motionDetector:self locationChanged:self.currentLocation];
         }
 #pragma GCC diagnostic pop
-        
+
         if (self.locationChangedBlock) {
             self.locationChangedBlock (self.currentLocation);
         }
     });
 
     [self calculateMotionType];
+}
+
+#pragma mark - LocationManager notification handler
+- (void)handleLocationWasPausedNotification:(NSNotification *)note
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+        if (self.delegate && [self.delegate respondsToSelector:@selector(motionDetector:locationWasPaused:)]) {
+            [self.delegate motionDetector:self locationWasPaused:TRUE];
+        }
+#pragma GCC diagnostic pop
+
+        if (self.locationWasPausedBlock) {
+            self.locationWasPausedBlock (TRUE);
+        }
+    });
 }
 @end

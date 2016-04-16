@@ -138,4 +138,10 @@
                                                       userInfo:@{@"status":@(status)}];
 }
 
+- (void)locationManagerDidPauseLocationUpdates:(CLLocationManager *)manager
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:LOCATION_WAS_PAUSED_NOTIFICATION
+                                                        object:self];
+}
+
 @end

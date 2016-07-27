@@ -7,6 +7,7 @@
 //  Copyright (c) 2015 Artur Mkrtchyan. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "SOStepDetector.h"
 #import <CoreMotion/CoreMotion.h>
 

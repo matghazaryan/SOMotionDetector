@@ -1,5 +1,6 @@
 SOMotionDetector
 ================
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 Simple library to detect motion for iOS by <b> <a href="https://github.com/arturdev">arturdev</a> </b>.
 
@@ -130,6 +131,18 @@ CUSTOMIZATION
 ```ruby
 pod "SOMotionDetector"
 ```
+
+### Installation with Carthage (iOS 8+)
+
+ [Carthage](https://github.com/Carthage/Carthage) is a lightweight dependency manager for Swift and Objective-C. It leverages CocoaTouch modules and is less invasive than CocoaPods.
+
+ To install with Carthage, follow the instruction on [Carthage](https://github.com/Carthage/Carthage)
+
+ #### Cartfile
+ ```
+ github "arturdev/SOMotionDetector"
+ ```
+
 
 <h2>LICENSE</h2>
 SOMotionDetector is under MIT License (see LICENSE file)

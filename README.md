@@ -1,7 +1,7 @@
 SOMotionDetector
 ================
 
-Simple library to detect motion for iOS by <b> <a href="https://github.com/arturdev">arturdev</a> </b>.
+Simple library to detect motion for iOS by <b> matghazaryan</b>.
 
 Based on location updates and acceleration.
 

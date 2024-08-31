@@ -136,5 +136,4 @@ SOMotionDetector is under MIT License (see LICENSE file)
 
 ## Author
 
-arturdev, mkrtarturdev@gmail.com
 matghazaryan, matevos14@gmail.com
